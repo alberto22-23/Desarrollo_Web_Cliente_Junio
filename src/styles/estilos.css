@@ -1,0 +1,401 @@
+body {
+    /*background-color: rgb(195, 212, 201);*/
+    background-color: rgb(236, 236, 224);
+    color: darkblue;
+    
+}
+
+/*--------------------------HEADER----------------------------------------*/
+/*Cabecera (cotenedor)*/
+.header {
+    /*Dimensiones*/
+    padding: 10px;
+    height: 15%;
+    width: 97%;
+    /*Posición*/
+    margin: auto;
+    margin-top: 1%;
+    /*Reglas del contenido*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /*Forma*/
+    border-radius: 10px;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+    font-size: 20px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/*Logo de la página (transparencia)*/
+.img-product {
+    padding: 0px;
+    height: auto;
+    width: 200px;
+}
+
+/*Logo de la página*/
+.imagen-logo {
+    height: auto;
+    width: 200px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/*Elemento de la lista*/
+.elemHeader {
+    display: flex;
+    /*color: black;*/
+    padding: 3px;
+    /*height: 25%;*/
+    /*width: 20%;*/
+    height: 100%;
+    text-align: center;
+}
+
+/*Enlace de la lista*/
+.enlace {
+    text-decoration: none;
+    display: block;
+    padding: 4%;
+    width: 200px;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+    color: darkblue;
+
+}
+
+/*Efectos aplicados al deslizar el cursor sobre los elementos de la lista*/
+.enlace:hover{
+    background-color: lightgreen;
+    color: darkblue;
+    font-weight: bold;
+}
+
+/*---------------------------------FIN HEADER-----------------------------------------------------*/
+
+.presentacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+    font-size: 20px;
+    /*Dimensiones*/
+    padding: 1%;
+    padding-left: 9%;
+    padding-right: 9%;
+    width: 80.5%;
+    /*Posición*/
+    margin: auto;
+    margin-top: 1%;
+}
+
+h1{
+    text-align: center;
+    /*justify-content: center;*/
+}
+
+/*---------------------------------containers-----------------------------------------------------*/
+.containercategs, .containerproducts, .containerdetails, .containerusers, .containersvg{
+    /*width: 33,33%;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*align-items: center;*/
+    width: 97%;
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    /*border-width: 1px;*/
+    /*background-color: lightcyan;*/
+    /*Forma*/
+    border-radius: 10px;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+}
+
+/*--------------------------tablero----------------------------------------*/
+
+.tablero-svg{
+    background-color: lightskyblue;
+    padding: 25px;
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+}
+
+.boton-tablero{
+    width: 200px;
+    font-size: 20px;
+}
+
+
+/*--------------------------cards----------------------------------------*/
+
+.cardproduct{
+    /*width: 33,33%;*/
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 25%;
+    height: 610px;
+    border-style: outset;
+    /*border-color: Tan;*/
+    border-color: lightsteelblue;
+    border-width: 7px;
+    /*background-color: wheat;*/
+    background-color: white;
+    border-radius: 10px;
+    /*text*/
+    font-weight: bold;
+
+}
+
+.cardcateg, .carduser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: 5px;
+    border-style: outset;
+    border-color: lightsteelblue;
+    border-width: 4px;
+    /*background-color: wheat;*/
+    background-color: lightcyan;
+    border-radius: 10px;
+    /*text*/
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.card-prod-detail{
+     /*width: 33,33%;*/
+     display: flex;
+     flex-direction: column;
+     /*flex-wrap: wrap;*/
+     /*justify-content: space-between;*/
+     align-items: center;
+     padding: 10px;
+     margin: 5px;
+     margin-top: 10px;
+     margin-bottom: 10px;
+     text-align: center;
+     width: 50%;
+     border-style: outset;
+     border-color: lightsteelblue;
+     border-width: 4px;
+     /*background-color: wheat;*/
+     background-color: white;
+     border-radius: 10px;
+     /*text*/
+     font-weight: bold;
+}
+
+.div-id{
+    font-size: 15px;
+    margin: 3px;
+}
+.div-categ{
+    height: 5%;
+    font-size: 20px;
+    margin: 3px;
+    background-color: lightcyan;
+    width: 90%;
+    border-radius: 15px 15px;
+}
+.div-img{
+    height: 60%;
+    margin: 3px;
+    /*display: flex;*/
+    padding-top: 20px;
+
+}
+.div-titulo{
+    height: 10%;
+    font-size: 18px;
+    overflow: hidden;
+    margin: 3px;
+}
+.div-precio{
+    height: 10%;
+    font-size: 20px;
+    margin: 3px;
+    color: darkred;
+}
+.div-link{
+    width: 95%;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.div-link-categ{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    align-items: center;
+    margin-top: 15px;
+}
+
+/*--------------------------usuarios----------------------------------------*/
+.carduser{
+    height:auto;
+    align-items: self-start;
+    height: auto;
+    overflow: hidden;
+}
+
+.precontainerusers{
+    /*width: 33,33%;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 97%;
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    /*Forma*/
+    border-radius: 10px;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+}
+
+.div-asc-desc{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    width: 30%;
+}
+
+.btn-asc-desc{
+    font-size: 20px;
+    padding: 5px;
+    /*margin-left: 10px;*/
+    width: 100%;
+    height: 35px;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+    color: darkblue;
+    
+}
+
+.btn-asc-desc:hover{
+    background-color: lightgreen;
+    color: darkblue;
+    font-weight: bold;
+    border-style: none;
+}
+
+.input-num-users{
+    font-size: 20px;
+    padding: 5px;
+    width: 45%;
+    height: 25px;
+    text-align: center;
+    /*Sombra efecto neón*/
+    box-shadow: 0px 0px 10px darkblue;
+    color: darkblue;
+}
+
+.btn-num-users{
+    width: 50%;  
+}
+
+
+
+
+
+/*--------------------------footer----------------------------------------*/
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 97%;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    padding: 10px;
+    margin: 5px;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px darkblue;
+    border-radius: 10px;
+    /*Posición*/
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    /*Fuente*/
+    color: darkblue
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Botón de Registro (Contenedor)*/
+
+/*.signUp-button {
+margin-right: 8%;
+display: flex;
+align-self: center;
+}*/
+
+/*.header-signUp {*/
+/*Forma y color*/
+/*background-color: unset;
+color: red;
+border-color: red;
+border-radius: 5px 0px 5px 0px;
+/*Aumenta el tamaño del botón*/
+/*padding: 25% 50%;
+/*Aumenta el tamaño del texto*/
+/*font-size: 1.1em;
+/*Texto en una sola línea*/
+/*white-space: nowrap;
+/*Posición*/
+/*align-self: center;
+}
+
+/*--------------------------------------------------------------------------------------*/
