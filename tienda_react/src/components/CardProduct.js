@@ -10,7 +10,7 @@ const CardProduct = ({ propproducto }) => {
     const enlace_producto = "/producto/" + id_producto
     return (
         <div className="cardproduct">
-            <div className='div-id'>{propproducto.id}</div>
+            {/*<div className='div-id'>{propproducto.id}</div>*/}
             <div className='div-categ'>{propproducto.category.toUpperCase()}</div>
             <div className='div-img'><img src={propproducto.image} alt="producto" className="img-product" /></div>
             <div className='div-titulo'>{propproducto.title}</div>

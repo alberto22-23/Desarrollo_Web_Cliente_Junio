@@ -2,7 +2,7 @@ body {
     /*background-color: rgb(195, 212, 201);*/
     background-color: rgb(236, 236, 224);
     color: darkblue;
-    
+
 }
 
 /*--------------------------HEADER----------------------------------------*/
@@ -68,15 +68,15 @@ body {
 }
 
 /*Efectos aplicados al deslizar el cursor sobre los elementos de la lista*/
-.enlace:hover{
+.enlace:hover {
     background-color: lightgreen;
     color: darkblue;
     font-weight: bold;
 }
 
-/*---------------------------------FIN HEADER-----------------------------------------------------*/
+/*----------------------------------------FIN HEADER---------------------------------------------*/
 
-.presentacion{
+.presentacion {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -96,13 +96,17 @@ body {
     margin-top: 1%;
 }
 
-h1{
+h1 {
     text-align: center;
     /*justify-content: center;*/
 }
 
 /*---------------------------------containers-----------------------------------------------------*/
-.containercategs, .containerproducts, .containerdetails, .containerusers, .containersvg{
+.containercategs,
+.containerproducts,
+.containerdetails,
+.containerusers,
+.containerextra {
     /*width: 33,33%;*/
     display: flex;
     flex-direction: row;
@@ -125,26 +129,64 @@ h1{
 
 /*--------------------------tablero----------------------------------------*/
 
-.tablero-svg{
-    background-color: lightskyblue;
-    padding: 25px;
-    width:70%;
+.tablero {
+    background-color: rgb(175, 210, 231);
+    padding: 10px;
+    width: 70%;
+    /*height: 500px;*/
     display: flex;
     flex-direction: column;
+    /*justify-content: center;*/
     flex-wrap: wrap;
     align-items: center;
     margin: 10px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+}
+.boton-tablero{
+    width: 175px;
+    font-size: 20px;
+    padding: 3px;
 }
 
-.boton-tablero{
-    width: 200px;
+label{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*background-color: beige;*/
+    width: 175px;
     font-size: 20px;
 }
 
+select{
+    width: 175px;
+    font-size: 20px;
+    padding: 3px;
+}
+
+.div-selectores-tablero{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight:500;
+}
+
+svg{
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.instrucciones-tablero{
+    font-size: 20px;
+}
 
 /*--------------------------cards----------------------------------------*/
 
-.cardproduct{
+.cardproduct {
     /*width: 33,33%;*/
     display: flex;
     flex-direction: column;
@@ -171,7 +213,8 @@ h1{
 
 }
 
-.cardcateg, .carduser{
+.cardcateg,
+.carduser {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,34 +233,35 @@ h1{
     padding: 10px;
 }
 
-.card-prod-detail{
-     /*width: 33,33%;*/
-     display: flex;
-     flex-direction: column;
-     /*flex-wrap: wrap;*/
-     /*justify-content: space-between;*/
-     align-items: center;
-     padding: 10px;
-     margin: 5px;
-     margin-top: 10px;
-     margin-bottom: 10px;
-     text-align: center;
-     width: 50%;
-     border-style: outset;
-     border-color: lightsteelblue;
-     border-width: 4px;
-     /*background-color: wheat;*/
-     background-color: white;
-     border-radius: 10px;
-     /*text*/
-     font-weight: bold;
+.card-prod-detail {
+    /*width: 33,33%;*/
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-between;*/
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 50%;
+    border-style: outset;
+    border-color: lightsteelblue;
+    border-width: 4px;
+    /*background-color: wheat;*/
+    background-color: white;
+    border-radius: 10px;
+    /*text*/
+    font-weight: bold;
 }
 
-.div-id{
+.div-id {
     font-size: 15px;
     margin: 3px;
 }
-.div-categ{
+
+.div-categ {
     height: 5%;
     font-size: 20px;
     margin: 3px;
@@ -225,26 +269,29 @@ h1{
     width: 90%;
     border-radius: 15px 15px;
 }
-.div-img{
+
+.div-img {
     height: 60%;
     margin: 3px;
     /*display: flex;*/
     padding-top: 20px;
-
 }
-.div-titulo{
+
+.div-titulo {
     height: 10%;
     font-size: 18px;
     overflow: hidden;
     margin: 3px;
 }
-.div-precio{
+
+.div-precio {
     height: 10%;
     font-size: 20px;
     margin: 3px;
     color: darkred;
 }
-.div-link{
+
+.div-link {
     width: 95%;
     font-size: 18px;
     display: flex;
@@ -254,7 +301,7 @@ h1{
     justify-content: center;
 }
 
-.div-link-categ{
+.div-link-categ {
     font-size: 18px;
     display: flex;
     flex-direction: column;
@@ -264,14 +311,14 @@ h1{
 }
 
 /*--------------------------usuarios----------------------------------------*/
-.carduser{
-    height:auto;
+.carduser {
+    height: auto;
     align-items: self-start;
     height: auto;
     overflow: hidden;
 }
 
-.precontainerusers{
+.precontainerusers, .precontainerextra{
     /*width: 33,33%;*/
     display: flex;
     flex-direction: column;
@@ -290,7 +337,7 @@ h1{
     box-shadow: 0px 0px 10px darkblue;
 }
 
-.div-asc-desc{
+.div-asc-desc {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -302,7 +349,7 @@ h1{
     width: 30%;
 }
 
-.btn-asc-desc{
+.btn-asc-desc {
     font-size: 20px;
     padding: 5px;
     /*margin-left: 10px;*/
@@ -311,17 +358,17 @@ h1{
     /*Sombra efecto neón*/
     box-shadow: 0px 0px 10px darkblue;
     color: darkblue;
-    
+
 }
 
-.btn-asc-desc:hover{
+.btn-asc-desc:hover {
     background-color: lightgreen;
     color: darkblue;
     font-weight: bold;
     border-style: none;
 }
 
-.input-num-users{
+.input-num-users {
     font-size: 20px;
     padding: 5px;
     width: 45%;
@@ -332,17 +379,13 @@ h1{
     color: darkblue;
 }
 
-.btn-num-users{
-    width: 50%;  
+.btn-num-users {
+    width: 50%;
 }
-
-
-
-
 
 /*--------------------------footer----------------------------------------*/
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -361,7 +404,6 @@ h1{
     margin-bottom: 1%;
     /*Fuente*/
     color: darkblue
-
 }
 
 

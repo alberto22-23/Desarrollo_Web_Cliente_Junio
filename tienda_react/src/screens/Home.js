@@ -35,7 +35,9 @@ const Home = (props) => {
             <strong>Características de los componentes Card:</strong><br></br>
             Los componentes Card visibilizan en la interfaz de usuario la información obtenida desde la API<br></br>
             1) El componente &lt;CardProduct&gt; está enlazado mediante &lt;Link&gt; con el componente &lt;ContainerProductDetail&gt;<br></br>
-            2) El componente &lt;CardCateg&gt; está enlazado mediante &lt;Link&gt; con &lt;ContainerCategProds&gt; que trae desde la API los productos de una determinada categoría y contiene a &lt;CardProduct&gt; (1)
+            2) El componente &lt;CardCateg&gt; está enlazado mediante &lt;Link&gt; con &lt;ContainerCategProds&gt; que trae desde la API los productos de una determinada categoría y contiene a &lt;CardProduct&gt; (1)<br></br>
+            <br></br>
+            La sección de <strong>Diseño Camiseta</strong> se estructura de manera semejante, se mantiene el componente &lt;ContainerExtra&gt; aunque no haya conexión con la API para mantener el esquema estructural del resto de la aplicación, no intervienen componentes &lt;Card&gt;, en su lugar hay un único componente &lt;Tablero&gt;. 
         </p>
     </div>
 }

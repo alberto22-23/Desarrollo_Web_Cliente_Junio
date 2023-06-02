@@ -38,7 +38,7 @@ const Header = () => {
             </div>
             <div className='elemHeader'>
                 {/* /albums: Página extra */}
-                <Link to="/extra" className="enlace">Extra</Link>
+                <Link to="/extra" className="enlace">Extra Camiseta</Link>
             </div>
             {/*<div className='elemHeader'>
                 <Link to="/about" className="enlace">Sobre nosotr@s</Link>

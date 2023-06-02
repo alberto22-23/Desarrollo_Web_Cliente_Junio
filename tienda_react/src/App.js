@@ -9,7 +9,7 @@ import ContainerCategProds from './screens/ContainerCategProds';
 import ContainerProducts from './screens/ContainerProducts';
 import ContainerProductDetails from './screens/ContainerProductDetails';
 import PreContainerUsers from './screens/PreContainerUsers';
-import ContainerExtra from './screens/ContainerExtra';
+import PreContainerExtra from './screens/PreContainerExtra';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
             <Route path="/productos" element={<ContainerProducts />}></Route>                         {/*ocupa el <Outlet />*/}
             <Route path="/producto/:parametro_id" element={<ContainerProductDetails />}></Route>      {/*ocupa el <Outlet />*/}
             <Route path="/usuarios" element={<PreContainerUsers />}></Route>                          {/*ocupa el <Outlet />*/}
-            <Route path="/extra" element={<ContainerExtra />}></Route>                          {/*ocupa el <Outlet />*/}
+            <Route path="/extra" element={<PreContainerExtra />}></Route>                          {/*ocupa el <Outlet />*/}
           </Route>
         </Routes>
       </BrowserRouter>
