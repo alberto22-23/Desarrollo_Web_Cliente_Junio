@@ -19,6 +19,10 @@ const PreContainerExtra = () => {
     const [deshabilitar_grosor_borde, setDeshabilitarGrosorBorde] = useState(false);
     const [deshabilitar_color_relleno, setDeshabilitarColorRelleno] = useState(false);
     const [deshabilitar_escala, setDeshabilitarEscala] = useState(false);
+
+    const [deshabilitar_pos_rectangulo, setDeshabilitarPosRectangulo] = useState(true);
+    const [deshabilitar_pos_poligono, setDeshabilitarPosPoligono] = useState(true);
+    const [deshabilitar_pos_rayo, setDeshabilitarPosRayo] = useState(true);
     //--------------------------------------------------------------
 
     const handleSelectChange = event => {
@@ -33,6 +37,12 @@ const PreContainerExtra = () => {
             setDeshabilitarGrosorBorde(false);
             setDeshabilitarColorRelleno(false)
             setDeshabilitarEscala(false);
+            //---------
+            setDeshabilitarPosRectangulo(true);
+            setDeshabilitarPosPoligono(false);
+            setDeshabilitarPosRayo(true);
+
+            
 
             //document.getElementsByClassName("selec-color-borde").selectedIndex="0";
         }
@@ -47,6 +57,10 @@ const PreContainerExtra = () => {
             setDeshabilitarGrosorBorde(false);
             setDeshabilitarColorRelleno(false)
             setDeshabilitarEscala(false);
+            //---------
+            setDeshabilitarPosRectangulo(false);
+            setDeshabilitarPosPoligono(true);
+            setDeshabilitarPosRayo(true);
         }
         if (event.target.value === "Rayo") {
             setFigura("Rayo"); 
@@ -59,6 +73,11 @@ const PreContainerExtra = () => {
             setDeshabilitarGrosorBorde(false);
             setDeshabilitarColorRelleno(true)
             setDeshabilitarEscala(false);
+            //---------
+            setDeshabilitarPosRectangulo(true);
+            setDeshabilitarPosPoligono(true);
+            setDeshabilitarPosRayo(false);
+
         }
         if (event.target.value === "Prenda") {
             setFigura("Prenda"); 
@@ -99,6 +118,10 @@ const PreContainerExtra = () => {
                 prop1deshabilitar_grosor_borde = {deshabilitar_grosor_borde}
                 prop1deshabilitar_color_relleno = {deshabilitar_color_relleno}
                 prop1deshabilitar_escala = {deshabilitar_escala}
+
+                prop1deshabilitar_pos_rectangulo = {deshabilitar_pos_rectangulo}
+                prop1deshabilitar_pos_poligono = {deshabilitar_pos_poligono}
+                prop1deshabilitar_pos_rayo = {deshabilitar_pos_rayo}
                 />
         </div>
     );

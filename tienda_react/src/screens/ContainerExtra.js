@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Tablero from '../components/Tablero';
 
-const ContainerExtra = ({prop1figura, prop1deshabilitar_mover_dcha, prop1deshabilitar_mover_izq, prop1deshabilitar_mover_abajo, prop1deshabilitar_mover_arriba, prop1deshabilitar_color_borde, prop1deshabilitar_grosor_borde, prop1deshabilitar_color_relleno, prop1deshabilitar_escala}) => {
+const ContainerExtra = ({prop1figura, prop1deshabilitar_mover_dcha, prop1deshabilitar_mover_izq, prop1deshabilitar_mover_abajo, prop1deshabilitar_mover_arriba, prop1deshabilitar_color_borde, prop1deshabilitar_grosor_borde, prop1deshabilitar_color_relleno, prop1deshabilitar_escala, prop1deshabilitar_pos_rectangulo, prop1deshabilitar_pos_poligono, prop1deshabilitar_pos_rayo}) => {
 
     
 
@@ -19,6 +19,10 @@ const ContainerExtra = ({prop1figura, prop1deshabilitar_mover_dcha, prop1deshabi
             prop2deshabilitar_grosor_borde = {prop1deshabilitar_grosor_borde}
             prop2deshabilitar_color_relleno = {prop1deshabilitar_color_relleno}
             prop2deshabilitar_escala = {prop1deshabilitar_escala} 
+
+            prop2deshabilitar_pos_rectangulo = {prop1deshabilitar_pos_rectangulo}
+            prop2deshabilitar_pos_poligono = {prop1deshabilitar_pos_poligono}
+            prop2deshabilitar_pos_rayo = {prop1deshabilitar_pos_rayo}
             />
             
         </div>
