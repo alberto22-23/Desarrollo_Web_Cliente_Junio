@@ -53,7 +53,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     /* Puntos a corregir:
     - Cada vez que se seleccione una figura los select de color borde, color relleno, grosor y tamaño deben mostrar la primera <option>
     - limitar los desplazamientos de las figuras al área del svg - ok
-    - hacer que el punto de referencia al aumentar el tamaño de la figura sea el centro de la misma
+    - hacer que el punto de referencia al aumentar el tamaño de la figura sea el centro de la misma - ok
     - permitir la superposición arbitraria de las figuras - ok
     - botón de enlace resaltado mientras se está en la página
     */
@@ -144,6 +144,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const handleSelectEscala = event => {
         if (figura_activa === "Polígono") {
             setEscalaPoligono(event.target.value);
+            //transfrom translate para mantener el centro
         }
         if (figura_activa === "Rectángulo") {
             setEscalaRectangulo(event.target.value);
@@ -435,7 +436,9 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                         stroke: color_borde_rectangulo,
                         strokeWidth: grosor_borde_rectangulo,
                         transform: `translate(${traslacionX_rectangulo}px, ${traslacionY_rectangulo}px) scale(${escala_rectangulo})`,
+                        transformOrigin: `${12.5}% ${16.458}%`
                     }} />
+                {/*para transformOrigin se pone el centro de la posición original de la figura, calculada en el dibujo cad*/}
                 {/*polygon:sup-centro(x,y),sup-decha(x,y),inf-dcha(x,y),inf-centro(x,y),inf-izq(x,y),sup-izq(x,y)*/}
                 <polygon className='poligono' id='poligono'
                     points="100,240 
@@ -445,7 +448,8 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                         fill: color_relleno_poligono,
                         stroke: color_borde_poligono,
                         strokeWidth: grosor_borde_poligono,
-                        transform: `translate(${traslacionX_poligono}px, ${traslacionY_poligono}px) scale(${escala_poligono})`
+                        transform: `translate(${traslacionX_poligono}px, ${traslacionY_poligono}px) scale(${escala_poligono})`,
+                        transformOrigin: `${12.5}% ${53.195}%`
                     }} />
                 <polyline className='rayo' id='rayo'
                     points="20,550 
@@ -457,7 +461,8 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                         stroke: color_borde_rayo,
                         strokeWidth: grosor_borde_rayo,
                         fill: "none",
-                        transform: `translate(${traslacionX_rayo}px, ${traslacionY_rayo}px) scale(${escala_rayo})`
+                        transform: `translate(${traslacionX_rayo}px, ${traslacionY_rayo}px) scale(${escala_rayo})`,
+                        transformOrigin: `${12.5}% ${83.33}%`
                     }} />
                 <use xlinkHref={`#${id_figuraFondo}`} />
                 <use xlinkHref={`#${id_figuraIntermedia}`} />

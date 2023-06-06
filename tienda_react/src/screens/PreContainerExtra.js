@@ -42,9 +42,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(false);
             setDeshabilitarPosRayo(true);
 
-            
-
-            //document.getElementsByClassName("selec-color-borde").selectedIndex="0";
+            document.getElementsByClassName("selec-color-borde").selectedIndex=0;
         }
         if (event.target.value === "Rectángulo") {
             setFigura("Rectángulo"); 
