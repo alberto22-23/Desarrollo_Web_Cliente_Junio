@@ -14,7 +14,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const deshabilitar_grosor_borde = prop2deshabilitar_grosor_borde;
     const deshabilitar_color_relleno = prop2deshabilitar_color_relleno;
     const deshabilitar_escala = prop2deshabilitar_escala;
-
+    //------------------------------------------------------ Deshabilitar permutaciones
     const deshabilitar_pos_rectangulo = prop2deshabilitar_pos_rectangulo;
     const deshabilitar_pos_poligono = prop2deshabilitar_pos_poligono;
     const deshabilitar_pos_rayo = prop2deshabilitar_pos_rayo;
@@ -48,139 +48,56 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const [id_figuraIntermedia, setFiguraIntermedia] = useState("");
     const [id_figuraFrontal, setFiguraFrontal] = useState("");
     //------------------------------------------------------ 
-    /*const [deshabilitar_rectangulo, setDeshabilitarRectangulo] = useState(false);
-    const [deshabilitar_poligono, setDeshabilitarPoligono] = useState(false);
-    const [deshabilitar_rayo, setDeshabilitarRayo] = useState(false);*/
+
 
     /* Puntos a corregir:
     - Cada vez que se seleccione una figura los select de color borde, color relleno, grosor y tamaño deben mostrar la primera <option>
-    - limitar los desplazamientos de las figuras al área del svg
+    - limitar los desplazamientos de las figuras al área del svg - ok
     - hacer que el punto de referencia al aumentar el tamaño de la figura sea el centro de la misma
-    - permitir la superposición arbitraria de las figuras
+    - permitir la superposición arbitraria de las figuras - ok
+    - botón de enlace resaltado mientras se está en la página
     */
-
-    /*const handleSelectPosRectangulo = event => {
-        if (event.target.value === "Fondo") {
-            setFiguraFondo("rectangulo");
-            console.log(id_figuraFondo);
-        }
-        if (event.target.value === "Intermedia") {
-            setFiguraIntermedia("rectangulo");
-        }
-        if (event.target.value === "Frontal") {
-            setFiguraFrontal("rectangulo");
-        }
-    }*/
-
-    /*const handleSelectPosPoligono = event => {
-        if (event.target.value === "Fondo" & id_figuraFondo !== "rectangulo") {
-            setFiguraFondo("poligono");
-        }*/
-
-    /*if (event.target.value === "Fondo" & id_figuraFondo === "rectangulo") {
-        alert("El rectángulo ya ocupa la posición 'Fondo'");
-    }*/
-
-    /*if (event.target.value === "Intermedia" & id_figuraIntermedia !== "rectangulo") {
-        setFiguraIntermedia("poligono");
-    }*/
-
-    /*if (event.target.value === "Intermedia" & id_figuraIntermedia === "rectangulo") {
-        alert("El rectángulo ya ocupa la posición 'Intermedia'");
-    }*/
-
-    /*if (event.target.value === "Frontal" & id_figuraFrontal !== "rectangulo") {
-        setFiguraFrontal("poligono");
-    }*/
-
-    /*if (event.target.value === "Frontal" & id_figuraFrontal === "rectangulo") {
-        alert("El rectángulo ya ocupa la posición 'Frontal'");
-    }
-}*/
-
-    /*const handleSelectPosRayo = event => {
-        if (event.target.value === "Fondo" & id_figuraFondo !== "rectangulo" & id_figuraFondo !== "poligono") {
-            setFiguraFondo("rayo");
-        }
-
-        if (event.target.value === "Fondo" & id_figuraFondo === "rectangulo" || id_figuraFondo === "poligono") {
-            alert("El rectángulo o el polígono ya ocupa la posición 'Frontal'");
-        }
-
-        if (event.target.value === "Intermedia" & id_figuraIntermedia !== "rectangulo" & id_figuraIntermedia !== "poligono") {
-            setFiguraIntermedia("rayo");
-        }
-        if (event.target.value === "Intermedia" & id_figuraIntermedia === "rectangulo" || id_figuraIntermedia === "poligono") {
-            alert("El rectángulo o el polígono ya ocupa la posición 'Intermedia'");
-        }
-
-        if (event.target.value === "Frontal" & id_figuraFrontal !== "rectangulo" & id_figuraFrontal !== "poligono") {
-            setFiguraFrontal("rayo");
-        }
-        if (event.target.value === "Frontal" & id_figuraFrontal === "rectangulo" || id_figuraFrontal === "poligono") {
-            alert("El rectángulo o el polígono ya ocupa la posición 'Frontal'");
-        }
-    }*/
 
     const handleSelectPosPoligono = event => {
 
-        if (event.target.value === "Fondo") {
-            setFiguraFondo("poligono");  // Combinación repetida C
+        if (event.target.value === "Permutación 3") {
+            setFiguraFondo("rayo");
             setFiguraIntermedia("rectangulo");
-            setFiguraFrontal("rayo");
+            setFiguraFrontal("poligono");
         }
-        if (event.target.value === "Intermedia") {
-            setFiguraFondo("rectangulo");  // Combinación repetida B
-            setFiguraIntermedia("poligono");
-            setFiguraFrontal("rayo");
-        }
-        if (event.target.value === "Frontal") {
-            setFiguraFondo("rectangulo"); // Combinación repetida A
+        if (event.target.value === "Permutación 4") {
+            setFiguraFondo("rectangulo");
             setFiguraIntermedia("rayo");
             setFiguraFrontal("poligono");
         }
-
     }
 
     const handleSelectPosRectangulo = event => {
 
-        if (event.target.value === "Fondo") {
-            setFiguraFondo("rectangulo");
+        if (event.target.value === "Permutación 1") {
+            setFiguraFondo("rayo");
             setFiguraIntermedia("poligono");
-            setFiguraFrontal("rayo");
+            setFiguraFrontal("rectangulo");
         }
-        if (event.target.value === "Intermedia") {
-            setFiguraFondo("poligono");  // Combinación repetida C
-            setFiguraIntermedia("rectangulo");
-            setFiguraFrontal("rayo");
-        }
-        if (event.target.value === "Frontal") {
+        if (event.target.value === "Permutación 2") {
             setFiguraFondo("poligono");
             setFiguraIntermedia("rayo");
             setFiguraFrontal("rectangulo");
         }
-
     }
 
     const handleSelectPosRayo = event => {
         //rayo, rectanguo, poligono - rayo, poligono, rectangulo -- rectangulo, rayo, poligono - poligono, rayo, rectangulo -- rectangulo, poligono, rayo - poligono, rectangulo, rayo  
-        if (event.target.value === "Fondo") {
-            setFiguraFondo("rayo");
-            setFiguraIntermedia("rectangulo");
-            setFiguraFrontal("poligono");
-        }
-        if (event.target.value === "Intermedia") {
-            setFiguraFondo("rectangulo");  // Combinación repetida A
-            setFiguraIntermedia("rayo");
-            setFiguraFrontal("poligono");
-        }
-        if (event.target.value === "Frontal") {
-            setFiguraFondo("rectangulo");  // Combinación repetida B
+        if (event.target.value === "Permutación 5") {
+            setFiguraFondo("rectangulo");
             setFiguraIntermedia("poligono");
             setFiguraFrontal("rayo");
         }
-
-
+        if (event.target.value === "Permutación 6") {
+            setFiguraFondo("poligono");
+            setFiguraIntermedia("rectangulo");
+            setFiguraFrontal("rayo");
+        }
     }
 
     //------------------------------------------------------ Color Borde
@@ -235,58 +152,124 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
             setEscalaRayo(event.target.value);
         }
     }
-    //------------------------------------------------------ Traslación +X
+    //------------------------------------------------------ Traslación +X (mover derecha)
     const handleClickTraslacionMasX = event => {
         if (figura_activa === "Polígono") {
-            setTraslacionXPoligono(traslacionX_poligono + 20);
+            if (traslacionX_poligono >= 620) {
+                setTraslacionXPoligono(traslacionX_poligono);
+            }
+            else {
+                setTraslacionXPoligono(traslacionX_poligono + 20);
+            }
         }
+
         if (figura_activa === "Rectángulo") {
-            setTraslacionXRectangulo(traslacionX_rectangulo + 20);
+            if (traslacionX_rectangulo >= 620) {
+                setTraslacionXRectangulo(traslacionX_rectangulo);
+            }
+            else {
+                setTraslacionXRectangulo(traslacionX_rectangulo + 20);
+            }
         }
+
         if (figura_activa === "Rayo") {
-            setTraslacionXRayo(traslacionX_rayo + 20);
+            if (traslacionX_rayo >= 620) {
+                setTraslacionXRayo(traslacionX_rayo);
+            }
+            else {
+                setTraslacionXRayo(traslacionX_rayo + 20);
+            }
         }
     }
-    //------------------------------------------------------ Traslación -X
+    //------------------------------------------------------ Traslación -X (mover izquierda)
     const handleClickTraslacionMenosX = event => {
         if (figura_activa === "Polígono") {
-            setTraslacionXPoligono(traslacionX_poligono - 20);
+            if (traslacionX_poligono <= -20) {
+                setTraslacionXPoligono(traslacionX_poligono);
+            }
+            else {
+                setTraslacionXPoligono(traslacionX_poligono - 20);
+            }
         }
+
         if (figura_activa === "Rectángulo") {
-            setTraslacionXRectangulo(traslacionX_rectangulo - 20);
+            if (traslacionX_rectangulo <= -20) {
+                setTraslacionXRectangulo(traslacionX_rectangulo);
+            }
+            else {
+                setTraslacionXRectangulo(traslacionX_rectangulo - 20);
+            }
         }
+
         if (figura_activa === "Rayo") {
-            setTraslacionXRayo(traslacionX_rayo - 20);
+            if (traslacionX_rayo <= -20) {
+                setTraslacionXRayo(traslacionX_rayo);
+            }
+            else {
+                setTraslacionXRayo(traslacionX_rayo - 20);
+            }
         }
     }
-    //------------------------------------------------------ Traslación +Y
+    //------------------------------------------------------ Traslación +Y (mover abajo)
     const handleClickTraslacionMasY = event => {
         if (figura_activa === "Polígono") {
-            setTraslacionYPoligono(traslacionY_poligono + 20);
+            if (traslacionY_poligono >= 220) {
+                setTraslacionYPoligono(traslacionY_poligono);
+            }
+            else {
+                setTraslacionYPoligono(traslacionY_poligono + 20);
+            }
         }
+
         if (figura_activa === "Rectángulo") {
-            setTraslacionYRectangulo(traslacionY_rectangulo + 20);
+            if (traslacionY_rectangulo >= 420) {
+                setTraslacionYRectangulo(traslacionY_rectangulo);
+            }
+            else {
+                setTraslacionYRectangulo(traslacionY_rectangulo + 20);
+            }
         }
+
         if (figura_activa === "Rayo") {
-            setTraslacionYRayo(traslacionY_rayo + 20);
+            if (traslacionY_rayo >= 40) {
+                setTraslacionYRectangulo(traslacionY_rectangulo);
+            }
+            else {
+                setTraslacionYRayo(traslacionY_rayo + 20);
+            }
         }
     }
-    //------------------------------------------------------ Traslación -Y
+    //------------------------------------------------------ Traslación -Y (mover arriba)
     const handleClickTraslacionMenosY = event => {
         if (figura_activa === "Polígono") {
-            setTraslacionYPoligono(traslacionY_poligono - 20);
+            if (traslacionY_poligono <= -240) {
+                setTraslacionYPoligono(traslacionY_poligono);
+            }
+            else {
+                setTraslacionYPoligono(traslacionY_poligono - 20);
+            }
         }
         if (figura_activa === "Rectángulo") {
-            setTraslacionYRectangulo(traslacionY_rectangulo - 20);
+            if (traslacionY_rectangulo <= -20) {
+                setTraslacionYRectangulo(traslacionY_rectangulo);
+            }
+            else {
+                setTraslacionYRectangulo(traslacionY_rectangulo - 20);
+            }
         }
         if (figura_activa === "Rayo") {
-            setTraslacionYRayo(traslacionY_rayo - 20);
+            if (traslacionY_rayo <= -440) {
+                setTraslacionYRectangulo(traslacionY_rectangulo);
+            }
+            else {
+                setTraslacionYRayo(traslacionY_rayo - 20);
+            }
         }
     }
 
     return (
         <div className='tablero'>
-            <div className='div-asc-desc'>Figura activa : {figura_activa}</div>
+            <div className='div-asc-desc div-asc-desc-rojo'>Figura activa:<strong>{figura_activa}</strong></div>
             <div className='div-selectores-tablero'>
                 <button onClick={handleClickTraslacionMasX} className='boton-tablero' disabled={deshabilitar_mover_dcha}>Mover derecha</button>
                 <button onClick={handleClickTraslacionMenosX} className='boton-tablero' disabled={deshabilitar_mover_izq}>Mover izquierda</button>
@@ -354,36 +337,32 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                         <option>0.75</option>
                         <option>1</option>
                         <option>1.25</option>
-                        <option>1.5</option>
                     </select>
                 </label>
             </div>
             <div className='div-selectores-tablero'>
                 <label>
-                    Posición rectágulo:
+                    Rect. delante:
                     <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRectangulo} disabled={deshabilitar_pos_rectangulo} >
                         <option>Seleccionar:</option>
-                        <option>Fondo</option>
-                        <option>Intermedia</option>
-                        <option>Frontal</option>
+                        <option>Permutación 1</option>
+                        <option>Permutación 2</option>
                     </select>
                 </label>
                 <label>
-                    Posición polígono:
+                    Políg. delante:
                     <select title='Selección' className="selec-color-borde" onChange={handleSelectPosPoligono} disabled={deshabilitar_pos_poligono} >
                         <option>Seleccionar:</option>
-                        <option>Fondo</option>
-                        <option>Intermedia</option>
-                        <option>Frontal</option>
+                        <option>Permutación 3</option>
+                        <option>Permutación 4</option>
                     </select>
                 </label>
                 <label>
-                    Posición rayo:
+                    Rayo delante:
                     <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRayo} disabled={deshabilitar_pos_rayo} >
                         <option>Seleccionar:</option>
-                        <option>Fondo</option>
-                        <option>Intermedia</option>
-                        <option>Frontal</option>
+                        <option>Permutación 5</option>
+                        <option>Permutación 6</option>
                     </select>
                 </label>
             </div>

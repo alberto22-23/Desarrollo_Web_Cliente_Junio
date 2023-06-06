@@ -349,6 +349,12 @@ svg{
     width: 30%;
 }
 
+.div-asc-desc-rojo{
+    color: darkred;
+    /*font-weight: bold;*/
+    margin-bottom: 10px;
+}
+
 .btn-asc-desc {
     font-size: 20px;
     padding: 5px;

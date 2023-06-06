@@ -90,9 +90,31 @@ const PreContainerExtra = () => {
             setDeshabilitarGrosorBorde(true);
             setDeshabilitarColorRelleno(false)
             setDeshabilitarEscala(true);
+            //---------
+            setDeshabilitarPosRectangulo(true);
+            setDeshabilitarPosPoligono(true);
+            setDeshabilitarPosRayo(true);
         }
-        if (event.target.value === "Sin selección") {
+        
+        /*if (event.target.value === "Sin selección") {
             setFigura(""); 
+        }*/
+
+        if (event.target.value === "Sin selección") {
+            setFigura("Sin selección");
+
+            setDeshabilitarMoverDcha(true);
+            setDeshabilitarMoverIzq(true);
+            setDeshabilitarMoverAbajo(true);
+            setDeshabilitarMoverArriba(true);
+            setDeshabilitarColorBorde(true);
+            setDeshabilitarGrosorBorde(true);
+            setDeshabilitarColorRelleno(true)
+            setDeshabilitarEscala(true);
+            //---------
+            setDeshabilitarPosRectangulo(true);
+            setDeshabilitarPosPoligono(true);
+            setDeshabilitarPosRayo(true);
         }
 
     }
@@ -101,10 +123,10 @@ const PreContainerExtra = () => {
         <div className='precontainerextra'>
             <p className='instrucciones-tablero'><strong>Haz el diseño que lucirá tu camiseta.</strong><br></br>Selecciona una figura en el menú desplegable y usa los controles para colocarla sobre la camiseta a tu gusto, puedes elegir el tamaño y los colores.<br></br>Tienes tres figuras a tu disposición.</p>
             
-            <select title='Selección figura' className="selec-figura" onChange={handleSelectChange}>
+            <select title='Selección figura' className="selec-figura" onChange={handleSelectChange} defaultValue={1}>
                 <option>Sin selección</option>
-                <option>Polígono</option>
                 <option>Rectángulo</option>
+                <option>Polígono</option>
                 <option>Rayo</option>
                 <option>Prenda</option>
             </select>
