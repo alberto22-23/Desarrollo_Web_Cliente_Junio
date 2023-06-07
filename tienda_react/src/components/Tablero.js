@@ -2,10 +2,9 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_mover_izq, prop2deshabilitar_mover_abajo, prop2deshabilitar_mover_arriba, prop2deshabilitar_color_borde, prop2deshabilitar_grosor_borde, prop2deshabilitar_color_relleno, prop2deshabilitar_escala, prop2deshabilitar_pos_rectangulo, prop2deshabilitar_pos_poligono, prop2deshabilitar_pos_rayo }) => {
-
+const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_mover_izq, prop2deshabilitar_mover_abajo, prop2deshabilitar_mover_arriba, prop2deshabilitar_color_borde, prop2deshabilitar_grosor_borde, prop2deshabilitar_color_relleno, prop2deshabilitar_escala, prop2deshabilitar_pos_rectangulo, prop2deshabilitar_pos_poligono, prop2deshabilitar_pos_rayo, prop2opcionSeleccionadaColorBorde, prop2opcionSeleccionadaGrosorBorde, prop2opcionSeleccionadaRelleno, prop2opcionSeleccionadaEscala, prop2opcionSeleccionadaPosRect, prop2opcionSeleccionadaPosPol, prop2opcionSeleccionadaPosRayo}) => {
     const figura_activa = prop2figura; //Valor de la prop, no es un estado.
-
+    //------------------------------------------------------
     const deshabilitar_mover_dcha = prop2deshabilitar_mover_dcha;
     const deshabilitar_mover_izq = prop2deshabilitar_mover_izq;
     const deshabilitar_mover_abajo = prop2deshabilitar_mover_abajo;
@@ -18,6 +17,16 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const deshabilitar_pos_rectangulo = prop2deshabilitar_pos_rectangulo;
     const deshabilitar_pos_poligono = prop2deshabilitar_pos_poligono;
     const deshabilitar_pos_rayo = prop2deshabilitar_pos_rayo;
+    //------------------------------------------------------
+    /*const opcionSeleccionadaColorBorde = prop2opcionSeleccionadaColorBorde;
+    const opcionSeleccionadaGrosorBorde = prop2opcionSeleccionadaGrosorBorde;
+    const opcionSeleccionadaRelleno = prop2opcionSeleccionadaRelleno;
+    const opcionSeleccionadaEscala = prop2opcionSeleccionadaEscala;
+    const opcionSeleccionadaPosRect = prop2opcionSeleccionadaPosRect;
+    const opcionSeleccionadaPosPol = prop2opcionSeleccionadaPosPol;
+    const opcionSeleccionadaPosRayo = prop2opcionSeleccionadaPosRayo;*/
+
+
 
     //VARIABLES DE ESTADO
     //------------------------------------------------------ Propiedades para el polígono
@@ -48,7 +57,15 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const [id_figuraIntermedia, setFiguraIntermedia] = useState("");
     const [id_figuraFrontal, setFiguraFrontal] = useState("");
     //------------------------------------------------------ 
-
+    const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState(prop2opcionSeleccionadaColorBorde);
+    const [opcionSeleccionadaGrosorBorde, setOpcionSeleccionadaGrosorBorde] = useState(prop2opcionSeleccionadaGrosorBorde);
+    const [opcionSeleccionadaRelleno, setOpcionSeleccionadaRelleno] = useState(prop2opcionSeleccionadaRelleno);
+    const [opcionSeleccionadaEscala, setOpcionSeleccionadaEscala] = useState(prop2opcionSeleccionadaEscala);
+    const [opcionSeleccionadaPosRect, setOpcionSeleccionadaPosRect] = useState(prop2opcionSeleccionadaPosRect);
+    const [opcionSeleccionadaPosPol, setOpcionSeleccionadaPosPol] = useState(prop2opcionSeleccionadaPosPol);
+    const [opcionSeleccionadaPosRayo, setOpcionSeleccionadaPosRayo] = useState(prop2opcionSeleccionadaPosRayo);
+    
+    
 
     /* Puntos a corregir:
     - Cada vez que se seleccione una figura los select de color borde, color relleno, grosor y tamaño deben mostrar la primera <option>
@@ -60,7 +77,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
 
     const handleSelectPosPoligono = event => {
 
-        if (event.target.value === "Permutación 3") {
+        if (event.target.value === "Permutación 3") { //.value se refiere al value="Permutación 3", no al texto de la opción
             setFiguraFondo("rayo");
             setFiguraIntermedia("rectangulo");
             setFiguraFrontal("poligono");
@@ -104,6 +121,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const handleSelectColorBorde = event => {
         if (figura_activa === "Polígono") {
             setColorStrokePoligono(event.target.value);
+            //setOpcionSeleccionadaRelleno(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setColorStrokeRectangulo(event.target.value);
@@ -144,7 +162,8 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const handleSelectEscala = event => {
         if (figura_activa === "Polígono") {
             setEscalaPoligono(event.target.value);
-            //transfrom translate para mantener el centro
+            //console.log(opcionSeleccionadaEscala);
+            setOpcionSeleccionadaEscala(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setEscalaRectangulo(event.target.value);
@@ -270,7 +289,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
 
     return (
         <div className='tablero'>
-            <div className='div-asc-desc div-asc-desc-rojo'>Figura activa:<strong>{figura_activa}</strong></div>
+            <div className='div-asc-desc div-asc-desc-rojo'>Figura activa: <strong>{figura_activa} {opcionSeleccionadaEscala} </strong></div>
             <div className='div-selectores-tablero'>
                 <button onClick={handleClickTraslacionMasX} className='boton-tablero' disabled={deshabilitar_mover_dcha}>Mover derecha</button>
                 <button onClick={handleClickTraslacionMenosX} className='boton-tablero' disabled={deshabilitar_mover_izq}>Mover izquierda</button>
@@ -280,12 +299,12 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
             <div className='div-selectores-tablero'>
                 <label>
                     Color de borde:
-                    <select title='Selección' className="selec-color-borde" onChange={handleSelectColorBorde} disabled={deshabilitar_color_borde}>
-                        <option>Seleccionar:</option>
-                        <option>red</option>
-                        <option>Khaki</option>
-                        <option>DarkTurquoise</option>
-                        <option>SpringGreen</option>
+                    <select title='Selección' className="selec-color-borde" onChange={handleSelectColorBorde} disabled={deshabilitar_color_borde} value={opcionSeleccionadaColorBorde}>
+                        <option value="valSeleccionarColBor">Seleccionar:</option>
+                        <option value="valueRed">Red</option>
+                        <option value="valueKhaki">Khaki</option>
+                        <option value="valueDarkTurquoise"> DarkTurquoise</option>
+                        <option value="valueSpringGreen">SpringGreen</option>
                         <option>Crimson</option>
                         <option>SeaGreen</option>
                         <option>SteelBlue</option>
@@ -298,26 +317,22 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                 </label>
                 <label>
                     Grosor de borde:
-                    <select title='Selección' className="selec-grosor-borde" onChange={handleSelectGrosorBorde} disabled={deshabilitar_grosor_borde}>
-                        <option>Seleccionar:</option>
-                        <option>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>4</option>
-                        <option>6</option>
-                        <option>8</option>
-                        <option>10</option>
-                        <option>12</option>
-                        <option>15</option>
-                        <option>20</option>
+                    <select title='Selección' className="selec-grosor-borde" onChange={handleSelectGrosorBorde} disabled={deshabilitar_grosor_borde} value={opcionSeleccionadaGrosorBorde}>
+                        <option value="valSeleccionarGroBor">Seleccionar:</option>
+                        <option value={0}>0</option>
+                        <option value={1}>1</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                        <option value={15}>15</option>
+                        <option value={20}>20</option>
                     </select>
                 </label>
                 <label>
                     Color de relleno:
-                    <select title='Selección' className="selec-color-relleno" onChange={handleSelectColorRelleno} disabled={deshabilitar_color_relleno}>
-                        <option>Seleccionar:</option>
-                        <option>red</option>
-                        <option>Khaki</option>
+                    <select title='Selección' className="selec-color-relleno" onChange={handleSelectColorRelleno} disabled={deshabilitar_color_relleno} value={opcionSeleccionadaRelleno}>
+                        <option value="valSeleccionarRelleno">Seleccionar:</option>
+                        <option value="valueRed">red</option>
+                        <option value="valueKhaki">Khaki</option>
                         <option>DarkTurquoise</option>
                         <option>SpringGreen</option>
                         <option>Crimson</option>
@@ -332,38 +347,38 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                 </label>
                 <label>
                     Tamaño:
-                    <select title='Selección' className="selec-escala" onChange={handleSelectEscala} disabled={deshabilitar_escala}>
-                        <option>Seleccionar:</option>
-                        <option>0.5</option>
-                        <option>0.75</option>
-                        <option>1</option>
-                        <option>1.25</option>
+                    <select title='Selección' className="selec-escala" onChange={handleSelectEscala} disabled={deshabilitar_escala} value={opcionSeleccionadaEscala}>
+                        <option value="valSeleccionarEscala">Seleccionar:</option>
+                        <option value={0.5}>0.5</option>
+                        <option value={0.75}>0.75</option>
+                        <option value={1}>1</option>
+                        <option value={1.25}>1.25</option>
                     </select>
                 </label>
             </div>
             <div className='div-selectores-tablero'>
                 <label>
                     Rect. delante:
-                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRectangulo} disabled={deshabilitar_pos_rectangulo} >
-                        <option>Seleccionar:</option>
-                        <option>Permutación 1</option>
-                        <option>Permutación 2</option>
+                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRectangulo} disabled={deshabilitar_pos_rectangulo} value={opcionSeleccionadaPosRect} >
+                        <option value="valSeleccionarRectDel">Seleccionar:</option>
+                        <option value="Permutación 1">Rect-Pol-Rayo</option>
+                        <option value="Permutación 2">Rect-Rayo-Pol</option>
                     </select>
                 </label>
                 <label>
                     Políg. delante:
-                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosPoligono} disabled={deshabilitar_pos_poligono} >
-                        <option>Seleccionar:</option>
-                        <option>Permutación 3</option>
-                        <option>Permutación 4</option>
+                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosPoligono} disabled={deshabilitar_pos_poligono} value={opcionSeleccionadaPosPol} >
+                        <option value="valSeleccionarPolDel">Seleccionar:</option>
+                        <option value="Permutación 3">Pol-Rect-Rayo</option>
+                        <option value="Permutación 4">Pol-Rayo-Rect</option>
                     </select>
                 </label>
                 <label>
                     Rayo delante:
-                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRayo} disabled={deshabilitar_pos_rayo} >
-                        <option>Seleccionar:</option>
-                        <option>Permutación 5</option>
-                        <option>Permutación 6</option>
+                    <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRayo} disabled={deshabilitar_pos_rayo} value={opcionSeleccionadaPosRayo} >
+                        <option value="valSeleccionarRayDel">Seleccionar:</option>
+                        <option value="Permutación 5">Rayo-Pol-Rect</option>
+                        <option value="Permutación 6">Rayo-Cuad-Pol</option>
                     </select>
                 </label>
             </div>

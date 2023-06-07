@@ -38,7 +38,7 @@ const PreContainerUsers = () => {
             </div>
             <div className='div-asc-desc'>Introduzca el número de usuarios visibles: </div>
             <div className='div-asc-desc'>
-                <input onChange={handleInputChange} className='input-num-users' type="number" min="0" max={totalUsuarios}></input>
+                <input onChange={handleInputChange} className='input-num-users' type="number" min="0" max={totalUsuarios} placeholder='Nº visibles'></input>
                 {/*<button onClick={handleClick1} className='btn-asc-desc btn-num-users' >Aceptar</button>*/}
                 Total Usuarios: {totalUsuarios}
             </div>
