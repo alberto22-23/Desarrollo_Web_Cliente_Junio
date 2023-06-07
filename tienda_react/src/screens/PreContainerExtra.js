@@ -25,7 +25,7 @@ const PreContainerExtra = () => {
     const [deshabilitar_pos_rayo, setDeshabilitarPosRayo] = useState(true);
 
     //--------------------------------------------------------------
-    const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState("");
+    /*const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState("");
     const [opcionSeleccionadaGrosorBorde, setOpcionSeleccionadaGrosorBorde] = useState("");
     const [opcionSeleccionadaRelleno, setOpcionSeleccionadaRelleno] = useState("");
     const [opcionSeleccionadaEscala, setOpcionSeleccionadaEscala] = useState("");
@@ -42,7 +42,7 @@ const PreContainerExtra = () => {
         setOpcionSeleccionadaPosRect("valSeleccionarRectDel");
         setOpcionSeleccionadaPosPol("valSeleccionarPolDel");
         setOpcionSeleccionadaPosRayo("valSeleccionarRayDel");
-    }
+    }*/
 
     const handleSelectChange = event => {
         if (event.target.value === "Polígono") {
@@ -61,7 +61,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(false);
             setDeshabilitarPosRayo(true);
             //--------- cambia la opción seleccionada de los select del componente Tablero
-            CambioValue1();
+            //CambioValue1();
         }
         if (event.target.value === "Rectángulo") {
             setFigura("Rectángulo");
@@ -79,7 +79,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(true);
             setDeshabilitarPosRayo(true);
             //--------- cambia la opción seleccionada de los select del componente Tablero
-            CambioValue1();
+            //CambioValue1();
 
         }
         if (event.target.value === "Rayo") {
@@ -98,7 +98,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(true);
             setDeshabilitarPosRayo(false);
             //--------- cambia la opción seleccionada de los select del componente Tablero
-            CambioValue1();
+            //CambioValue1();
 
         }
         if (event.target.value === "Prenda") {
@@ -117,7 +117,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(true);
             setDeshabilitarPosRayo(true);
             //--------- cambia la opción seleccionada de los select del componente Tablero
-            CambioValue1();
+            //CambioValue1();
         }
 
 
@@ -137,7 +137,7 @@ const PreContainerExtra = () => {
             setDeshabilitarPosPoligono(true);
             setDeshabilitarPosRayo(true);
             //--------- cambia la opción seleccionada de los select del componente Tablero
-            CambioValue1();
+            //CambioValue1();
         }
 
     }
@@ -168,13 +168,13 @@ const PreContainerExtra = () => {
                 prop1deshabilitar_pos_poligono={deshabilitar_pos_poligono}
                 prop1deshabilitar_pos_rayo={deshabilitar_pos_rayo}
 
-                prop1opcionSeleccionadaColorBorde ={opcionSeleccionadaColorBorde}
+                /*prop1opcionSeleccionadaColorBorde ={opcionSeleccionadaColorBorde}
                 prop1opcionSeleccionadaGrosorBorde={opcionSeleccionadaGrosorBorde}
                 prop1opcionSeleccionadaRelleno={opcionSeleccionadaRelleno}
                 prop1opcionSeleccionadaEscala={opcionSeleccionadaEscala}
                 prop1opcionSeleccionadaPosRect={opcionSeleccionadaPosRect}
                 prop1opcionSeleccionadaPosPol={opcionSeleccionadaPosPol}
-                prop1opcionSeleccionadaPosRayo={opcionSeleccionadaPosRayo}
+                prop1opcionSeleccionadaPosRayo={opcionSeleccionadaPosRayo}*/
             />
         </div>
     );

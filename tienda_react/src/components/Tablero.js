@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_mover_izq, prop2deshabilitar_mover_abajo, prop2deshabilitar_mover_arriba, prop2deshabilitar_color_borde, prop2deshabilitar_grosor_borde, prop2deshabilitar_color_relleno, prop2deshabilitar_escala, prop2deshabilitar_pos_rectangulo, prop2deshabilitar_pos_poligono, prop2deshabilitar_pos_rayo, prop2opcionSeleccionadaColorBorde, prop2opcionSeleccionadaGrosorBorde, prop2opcionSeleccionadaRelleno, prop2opcionSeleccionadaEscala, prop2opcionSeleccionadaPosRect, prop2opcionSeleccionadaPosPol, prop2opcionSeleccionadaPosRayo}) => {
+const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_mover_izq, prop2deshabilitar_mover_abajo, prop2deshabilitar_mover_arriba, prop2deshabilitar_color_borde, prop2deshabilitar_grosor_borde, prop2deshabilitar_color_relleno, prop2deshabilitar_escala, prop2deshabilitar_pos_rectangulo, prop2deshabilitar_pos_poligono, prop2deshabilitar_pos_rayo/*, prop2opcionSeleccionadaColorBorde, prop2opcionSeleccionadaGrosorBorde, prop2opcionSeleccionadaRelleno, prop2opcionSeleccionadaEscala, prop2opcionSeleccionadaPosRect, prop2opcionSeleccionadaPosPol, prop2opcionSeleccionadaPosRayo*/}) => {
     const figura_activa = prop2figura; //Valor de la prop, no es un estado.
     //------------------------------------------------------
     const deshabilitar_mover_dcha = prop2deshabilitar_mover_dcha;
@@ -25,8 +25,6 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const opcionSeleccionadaPosRect = prop2opcionSeleccionadaPosRect;
     const opcionSeleccionadaPosPol = prop2opcionSeleccionadaPosPol;
     const opcionSeleccionadaPosRayo = prop2opcionSeleccionadaPosRayo;*/
-
-
 
     //VARIABLES DE ESTADO
     //------------------------------------------------------ Propiedades para el polígono
@@ -57,16 +55,23 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const [id_figuraIntermedia, setFiguraIntermedia] = useState("");
     const [id_figuraFrontal, setFiguraFrontal] = useState("");
     //------------------------------------------------------ 
-    const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState(prop2opcionSeleccionadaColorBorde);
+    /*const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState(prop2opcionSeleccionadaColorBorde);
     const [opcionSeleccionadaGrosorBorde, setOpcionSeleccionadaGrosorBorde] = useState(prop2opcionSeleccionadaGrosorBorde);
     const [opcionSeleccionadaRelleno, setOpcionSeleccionadaRelleno] = useState(prop2opcionSeleccionadaRelleno);
     const [opcionSeleccionadaEscala, setOpcionSeleccionadaEscala] = useState(prop2opcionSeleccionadaEscala);
     const [opcionSeleccionadaPosRect, setOpcionSeleccionadaPosRect] = useState(prop2opcionSeleccionadaPosRect);
     const [opcionSeleccionadaPosPol, setOpcionSeleccionadaPosPol] = useState(prop2opcionSeleccionadaPosPol);
-    const [opcionSeleccionadaPosRayo, setOpcionSeleccionadaPosRayo] = useState(prop2opcionSeleccionadaPosRayo);
+    const [opcionSeleccionadaPosRayo, setOpcionSeleccionadaPosRayo] = useState(prop2opcionSeleccionadaPosRayo);*/
+    //------------------------------------------------------ Volver a la posición por defecto en los selects al cambiar la figura usando useEffect
+    const [opcionSeleccionadaColorBorde, setOpcionSeleccionadaColorBorde] = useState("");
+    const [opcionSeleccionadaGrosorBorde, setOpcionSeleccionadaGrosorBorde] = useState("");
+    const [opcionSeleccionadaRelleno, setOpcionSeleccionadaRelleno] = useState("");
+    const [opcionSeleccionadaEscala, setOpcionSeleccionadaEscala] = useState("");
+    const [opcionSeleccionadaPosRect, setOpcionSeleccionadaPosRect] = useState("");
+    const [opcionSeleccionadaPosPol, setOpcionSeleccionadaPosPol] = useState("");
+    const [opcionSeleccionadaPosRayo, setOpcionSeleccionadaPosRayo] = useState("");
     
     
-
     /* Puntos a corregir:
     - Cada vez que se seleccione una figura los select de color borde, color relleno, grosor y tamaño deben mostrar la primera <option>
     - limitar los desplazamientos de las figuras al área del svg - ok
@@ -74,6 +79,21 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     - permitir la superposición arbitraria de las figuras - ok
     - botón de enlace resaltado mientras se está en la página
     */
+
+    /*La opción que aparece como seleccionada cada select es 'event.target.value' hasta que 'figura_activa' cambia y entoces se activa  
+    el useEffect() haciendo que la opción seleccionada sea la por defecto, (la primera), así, al cambiar de figura es los select 
+    solo aparece 'Seleccionar:'*/
+    useEffect(() => {
+        setOpcionSeleccionadaColorBorde("valSeleccionarColBor");
+        setOpcionSeleccionadaGrosorBorde("valSeleccionarGroBor");
+        setOpcionSeleccionadaRelleno("valSeleccionarRelleno");
+        setOpcionSeleccionadaEscala("valSeleccionarEscala");
+        setOpcionSeleccionadaPosRect("valSeleccionarRectDel");
+        setOpcionSeleccionadaPosPol("valSeleccionarPolDel");
+        setOpcionSeleccionadaPosRayo("valSeleccionarRayoDel");
+    },[figura_activa]);
+
+    //----------- MANEJADORES DE SELECTORES -------------
 
     const handleSelectPosPoligono = event => {
 
@@ -87,10 +107,11 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
             setFiguraIntermedia("rayo");
             setFiguraFrontal("poligono");
         }
+        setOpcionSeleccionadaPosPol(event.target.value);
     }
 
     const handleSelectPosRectangulo = event => {
-
+        
         if (event.target.value === "Permutación 1") {
             setFiguraFondo("rayo");
             setFiguraIntermedia("poligono");
@@ -101,6 +122,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
             setFiguraIntermedia("rayo");
             setFiguraFrontal("rectangulo");
         }
+        setOpcionSeleccionadaPosRect(event.target.value);
     }
 
     const handleSelectPosRayo = event => {
@@ -115,61 +137,70 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
             setFiguraIntermedia("rectangulo");
             setFiguraFrontal("rayo");
         }
+        setOpcionSeleccionadaPosRayo(event.target.value);
     }
-
     //------------------------------------------------------ Color Borde
     const handleSelectColorBorde = event => {
         if (figura_activa === "Polígono") {
-            setColorStrokePoligono(event.target.value);
-            //setOpcionSeleccionadaRelleno(event.target.value);
+            setColorStrokePoligono(event.target.value); //actualiza 'color_borde_poligono' propiedad css en el 'polygon' del svg
+            setOpcionSeleccionadaColorBorde(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setColorStrokeRectangulo(event.target.value);
+            setOpcionSeleccionadaColorBorde(event.target.value);
         }
         if (figura_activa === "Rayo") {
             setColorStrokeRayo(event.target.value);
+            setOpcionSeleccionadaColorBorde(event.target.value);
         }
     }
     //------------------------------------------------------ Grosor Borde
     const handleSelectGrosorBorde = event => {
         if (figura_activa === "Polígono") {
             setGrosorStrokePoligono(event.target.value);
+            setOpcionSeleccionadaGrosorBorde(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setGrosorStrokeRectangulo(event.target.value);
+            setOpcionSeleccionadaGrosorBorde(event.target.value);
         }
         if (figura_activa === "Rayo") {
             setGrosorStrokeRayo(event.target.value);
+            setOpcionSeleccionadaGrosorBorde(event.target.value);
         }
     }
-
     //------------------------------------------------------ Color Relleno
     const handleSelectColorRelleno = event => {
         if (figura_activa === "Polígono") {
             setColorFillPoligono(event.target.value);
+            setOpcionSeleccionadaRelleno(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setColorFillRectangulo(event.target.value);
+            setOpcionSeleccionadaRelleno(event.target.value);
         }
         if (figura_activa === "Rayo") {
             setColorFillRayo(event.target.value);
+            setOpcionSeleccionadaRelleno(event.target.value);
         }
         if (figura_activa === "Prenda") {
             setColorFillPrenda(event.target.value);
+            setOpcionSeleccionadaRelleno(event.target.value);
         }
     }
-    //------------------------------------------------------ Escala
+    //------------------------------------------------------ Escala 
     const handleSelectEscala = event => {
         if (figura_activa === "Polígono") {
             setEscalaPoligono(event.target.value);
-            //console.log(opcionSeleccionadaEscala);
             setOpcionSeleccionadaEscala(event.target.value);
         }
         if (figura_activa === "Rectángulo") {
             setEscalaRectangulo(event.target.value);
+            setOpcionSeleccionadaEscala(event.target.value);
         }
         if (figura_activa === "Rayo") {
             setEscalaRayo(event.target.value);
+            setOpcionSeleccionadaEscala(event.target.value);
         }
     }
     //------------------------------------------------------ Traslación +X (mover derecha)
@@ -289,7 +320,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
 
     return (
         <div className='tablero'>
-            <div className='div-asc-desc div-asc-desc-rojo'>Figura activa: <strong>{figura_activa} {opcionSeleccionadaEscala} </strong></div>
+            <div className='div-asc-desc div-asc-desc-rojo'>Figura activa: <strong>{figura_activa}</strong></div>
             <div className='div-selectores-tablero'>
                 <button onClick={handleClickTraslacionMasX} className='boton-tablero' disabled={deshabilitar_mover_dcha}>Mover derecha</button>
                 <button onClick={handleClickTraslacionMenosX} className='boton-tablero' disabled={deshabilitar_mover_izq}>Mover izquierda</button>
@@ -301,18 +332,18 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                     Color de borde:
                     <select title='Selección' className="selec-color-borde" onChange={handleSelectColorBorde} disabled={deshabilitar_color_borde} value={opcionSeleccionadaColorBorde}>
                         <option value="valSeleccionarColBor">Seleccionar:</option>
-                        <option value="valueRed">Red</option>
-                        <option value="valueKhaki">Khaki</option>
-                        <option value="valueDarkTurquoise"> DarkTurquoise</option>
-                        <option value="valueSpringGreen">SpringGreen</option>
-                        <option>Crimson</option>
-                        <option>SeaGreen</option>
-                        <option>SteelBlue</option>
-                        <option>DarkKhaki</option>
-                        <option>Purple</option>
-                        <option>DarkSlateGray</option>
-                        <option>Chocolate</option>
-                        <option>Sienna</option>
+                        <option value="Red">Red</option>
+                        <option value="Khaki">Khaki</option>
+                        <option value="DarkTurquoise"> DarkTurquoise</option>
+                        <option value="SpringGreen">SpringGreen</option>
+                        <option value="Crimson">Crimson</option>
+                        <option value="SeaGreen">SeaGreen</option>
+                        <option value="SteelBlue">SteelBlue</option>
+                        <option value="DarkKhaki">DarkKhaki</option>
+                        <option value="Purple">Purple</option>
+                        <option value="DarkSlateGray">DarkSlateGray</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Sienna">Sienna</option>
                     </select>
                 </label>
                 <label>
@@ -331,9 +362,9 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                     Color de relleno:
                     <select title='Selección' className="selec-color-relleno" onChange={handleSelectColorRelleno} disabled={deshabilitar_color_relleno} value={opcionSeleccionadaRelleno}>
                         <option value="valSeleccionarRelleno">Seleccionar:</option>
-                        <option value="valueRed">red</option>
-                        <option value="valueKhaki">Khaki</option>
-                        <option>DarkTurquoise</option>
+                        <option value="Red">Red</option>
+                        <option value="Khaki">Khaki</option>
+                        <option value="DarkTurquoise">DarkTurquoise</option>
                         <option>SpringGreen</option>
                         <option>Crimson</option>
                         <option>SeaGreen</option>
@@ -378,7 +409,7 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
                     <select title='Selección' className="selec-color-borde" onChange={handleSelectPosRayo} disabled={deshabilitar_pos_rayo} value={opcionSeleccionadaPosRayo} >
                         <option value="valSeleccionarRayDel">Seleccionar:</option>
                         <option value="Permutación 5">Rayo-Pol-Rect</option>
-                        <option value="Permutación 6">Rayo-Cuad-Pol</option>
+                        <option value="Permutación 6">Rayo-Rect-Pol</option>
                     </select>
                 </label>
             </div>

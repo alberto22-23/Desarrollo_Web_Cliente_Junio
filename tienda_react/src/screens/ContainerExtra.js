@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Tablero from '../components/Tablero';
 
-const ContainerExtra = ({ prop1figura, prop1deshabilitar_mover_dcha, prop1deshabilitar_mover_izq, prop1deshabilitar_mover_abajo, prop1deshabilitar_mover_arriba, prop1deshabilitar_color_borde, prop1deshabilitar_grosor_borde, prop1deshabilitar_color_relleno, prop1deshabilitar_escala, prop1opcionSeleccionadaColorBorde, prop1deshabilitar_pos_rectangulo, prop1deshabilitar_pos_poligono, prop1deshabilitar_pos_rayo, prop1opcionSeleccionadaGrosorBorde, prop1opcionSeleccionadaRelleno, prop1opcionSeleccionadaEscala, prop1opcionSeleccionadaPosRect, prop1opcionSeleccionadaPosPol, prop1opcionSeleccionadaPosRayo}) => {
+const ContainerExtra = ({ prop1figura, prop1deshabilitar_mover_dcha, prop1deshabilitar_mover_izq, prop1deshabilitar_mover_abajo, prop1deshabilitar_mover_arriba, prop1deshabilitar_color_borde, prop1deshabilitar_grosor_borde, prop1deshabilitar_color_relleno, prop1deshabilitar_escala, prop1deshabilitar_pos_rectangulo, prop1deshabilitar_pos_poligono, prop1deshabilitar_pos_rayo/*, prop1opcionSeleccionadaGrosorBorde, prop1opcionSeleccionadaRelleno, prop1opcionSeleccionadaEscala, prop1opcionSeleccionadaPosRect, prop1opcionSeleccionadaPosPol, prop1opcionSeleccionadaPosRayo*/}) => {
 
 
 
@@ -24,13 +24,13 @@ const ContainerExtra = ({ prop1figura, prop1deshabilitar_mover_dcha, prop1deshab
                 prop2deshabilitar_pos_poligono={prop1deshabilitar_pos_poligono}
                 prop2deshabilitar_pos_rayo={prop1deshabilitar_pos_rayo}
 
-                prop2opcionSeleccionadaColorBorde={prop1opcionSeleccionadaColorBorde}
+                /*prop2opcionSeleccionadaColorBorde={prop1opcionSeleccionadaColorBorde}
                 prop2opcionSeleccionadaGrosorBorde={prop1opcionSeleccionadaGrosorBorde}
                 prop2opcionSeleccionadaRelleno={prop1opcionSeleccionadaRelleno}
                 prop2opcionSeleccionadaEscala={prop1opcionSeleccionadaEscala}
                 prop2opcionSeleccionadaPosRect={prop1opcionSeleccionadaPosRect}
                 prop2opcionSeleccionadaPosPol={prop1opcionSeleccionadaPosPol}
-                prop2opcionSeleccionadaPosRayo={prop1opcionSeleccionadaPosRayo}
+                prop2opcionSeleccionadaPosRayo={prop1opcionSeleccionadaPosRayo}*/
             />
 
         </div>
