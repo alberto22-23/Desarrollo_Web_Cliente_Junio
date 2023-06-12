@@ -72,16 +72,15 @@ const Tablero = ({ prop2figura, prop2deshabilitar_mover_dcha, prop2deshabilitar_
     const [opcionSeleccionadaPosRayo, setOpcionSeleccionadaPosRayo] = useState("");
     
     
-    /* Puntos a corregir:
+    /* Puntos solucionados:
     - Cada vez que se seleccione una figura los select de color borde, color relleno, grosor y tamaño deben mostrar la primera <option>
     - limitar los desplazamientos de las figuras al área del svg - ok
     - hacer que el punto de referencia al aumentar el tamaño de la figura sea el centro de la misma - ok
     - permitir la superposición arbitraria de las figuras - ok
-    - botón de enlace resaltado mientras se está en la página
     */
 
     /*La opción que aparece como seleccionada cada select es 'event.target.value' hasta que 'figura_activa' cambia y entoces se activa  
-    el useEffect() haciendo que la opción seleccionada sea la por defecto, (la primera), así, al cambiar de figura es los select 
+    el useEffect() haciendo que la opción seleccionada sea la por defecto, (la primera), así, al cambiar de figura en los select 
     solo aparece 'Seleccionar:'*/
     useEffect(() => {
         setOpcionSeleccionadaColorBorde("valSeleccionarColBor");
